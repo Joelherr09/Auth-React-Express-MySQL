@@ -1,0 +1,23 @@
+.cuerpo-vista-register{
+    width: 100%;
+}
+.vista-register-header{
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+}
+.form-register{
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 30px;
+}
+.form-register form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.casilla-register{
+    display: flex;
+    flex-direction: column;
+    
+}

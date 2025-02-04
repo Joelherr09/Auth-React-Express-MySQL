@@ -1,0 +1,23 @@
+.cuerpo-vista-login{
+    width: 100%;
+}
+.vista-login-header{
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+}
+.form-login{
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 30px;
+}
+.form-login form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.casilla-login{
+    display: flex;
+    flex-direction: column;
+    
+}
