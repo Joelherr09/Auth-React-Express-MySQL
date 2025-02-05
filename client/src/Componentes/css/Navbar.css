@@ -1,8 +1,14 @@
 .navbar-padre{
-    background-color: brown;
+    background-color: white;
     padding: 12px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    gap: 10px;
+    border-top: 1px solid black;
 }
 .navbar-padre div ul li{
     list-style: none;

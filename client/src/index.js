@@ -9,6 +9,8 @@ import Register from './Pages/Register';
 import Partidos from './Pages/Partidos';
 import Campeonatos from './Pages/Campeonatos';
 import Equipos from './Pages/Equipos';
+import Perfil from './Pages/Perfil';
+import EditarPerfil from './Pages/EditarPerfil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
   {
     path: "/equipos",
     element: <Equipos/>
+  },
+  {
+    path: "/perfil/:id", // Ruta dinámica para el perfil
+    element: <Perfil/>,
+  },
+  {
+    path: "/editar-perfil/:id",
+    element: <EditarPerfil/>
   }
 ])
 

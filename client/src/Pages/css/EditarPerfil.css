@@ -1,0 +1,46 @@
+.volver-atras{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding: 0px 8px;
+}
+.editar-perfil-container{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 80px;
+}
+.header-editar-perfil{
+    text-align: center;
+}
+.form-editar-perfil{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-editar-perfil div label{
+    font-weight: 600;
+}
+.form-editar-perfil button{
+    padding: 8px 0;
+}
+.casilla-editar-perfil{
+    display: flex;
+    flex-direction: column;
+}
+.casilla-editar-perfil input{
+    padding: 6px 2px;
+}
+.eliminar-cuenta-btn{
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    padding: 6px 2px;
+    background-color: red;
+    color: white;
+    margin-bottom: 20px;
+}

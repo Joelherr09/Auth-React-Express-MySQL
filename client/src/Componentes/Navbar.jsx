@@ -2,10 +2,15 @@ import React, {useContext} from 'react'
 import './css/Navbar.css'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
-import axios from 'axios'
+import HomeIcon from '@mui/icons-material/Home';
+import PartidosIcon from '@mui/icons-material/SportsVolleyball';
+import TorneoIcon from '@mui/icons-material/EmojiEvents';
+import EquiposIcon from '@mui/icons-material/Groups';
+import PerfilIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = () => {
-    const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleHomeClick = () => {
@@ -26,38 +31,40 @@ const Navbar = () => {
     const handleEquiposClick = () => {
         navigate('/equipos');
     }
-    const handleLogout = async () => {
-        try {
-          await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
-          setIsAuthenticated(false); // Actualizar el estado de autenticación
-          navigate('/'); // Redireccionar a la página principal
-        } catch (err) {
-          console.error('Error en el logout:', err);
+    const handlePerfilClick = () => {
+        if (isAuthenticated && user) {
+          navigate(`/perfil/${user.id}`); // Redirigir al perfil del usuario logueado
+        } else {
+          navigate('/login'); // Redirigir al login si no está autenticado
         }
       };
+      const handleLogoutClick = () => {
+        logout(); // Cerrar sesión
+        navigate('/'); // Redirigir a la página principal
+      };
+
+      
 
   return (
     <div className='navbar-padre'>
-        <div onClick={handleHomeClick}>
+        {/* <div onClick={handleHomeClick}>
             <h1>Inicio</h1>
-        </div>
+        </div> */}
         <div>
             <ul className='links-navbar'>
-                <li onClick={handlePartidosClick}>Partidos</li>
-                <li onClick={handleCampeonatosClick}>Campeonatos</li>
-                <li onClick={handleEquiposClick}>Equipos</li>
-            </ul>
-        </div>
-        <div>
-            <ul className='links-auth'>
+                <li  onClick={handleHomeClick}><HomeIcon sx={{ fontSize: 40 }} /></li>
+                <li onClick={handlePartidosClick}><PartidosIcon sx={{fontSize:40}} /></li>
+                <li onClick={handleCampeonatosClick}><TorneoIcon sx={{fontSize:40}} /></li>
+                <li onClick={handleEquiposClick}><EquiposIcon sx={{fontSize:40}} /></li>
                 {isAuthenticated ? (
-                    <li className='auth-hover-nav' onClick={handleLogout}>Cerrar Sesión</li>
+                    <>
+                    <li onClick={handlePerfilClick}><PerfilIcon sx={{fontSize:40}} /></li>
+                    <li className='auth-hover-nav' onClick={handleLogoutClick}><LogoutIcon sx={{fontSize:40}} /></li>
+                    </>
                 ) : (
                     <><li className='auth-hover-nav' onClick={handleLoginClick}>Iniciar Sesión</li><li className='auth-hover-nav' onClick={handleRegisterClick}>Registrarse</li></>
                     
                 )}
-
-
             </ul>
         </div>
     </div>

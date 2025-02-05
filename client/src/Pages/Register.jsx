@@ -3,6 +3,7 @@ import Navbar from '../Componentes/Navbar';
 import './css/Register.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LogoBar from '../Componentes/LogoBar';
 
 const Register = () => {
     const [usuario, setUsuario] = useState('');
@@ -35,6 +36,7 @@ const Register = () => {
 
   return (
     <div>
+        <LogoBar/>
         <Navbar/>
         <div className='cuerpo-vista-register'>
             <div className='vista-register-header'>

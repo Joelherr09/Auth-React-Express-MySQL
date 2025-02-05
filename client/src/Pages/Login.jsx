@@ -4,6 +4,7 @@ import axios from 'axios'
 import './css/Login.css'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
+import LogoBar from '../Componentes/LogoBar'
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { setIsAuthenticated } = useContext(AuthContext);
+    const { setIsAuthenticated, setUser } = useContext(AuthContext);
   
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +26,8 @@ const Login = () => {
     
           if (response.data.message === 'Login exitoso') {
             setIsAuthenticated(true); // Actualizar el estado de autenticación
-            navigate('/'); // Redireccionar a la página principal
+            setUser(response.data.user); // Actualizar el objeto user
+            navigate(`/perfil/${response.data.user.id}`); // Redirigir al perfil del usuario
           }
         } catch (err) {
           setError('Email o contraseña incorrectos');
@@ -35,13 +37,15 @@ const Login = () => {
 
   return (
     <div>
+        <LogoBar/>
         <Navbar/>
         <div className='cuerpo-vista-login'>
             <div className='vista-login-header'>
                 <h1>Inicia Sesión</h1>
             </div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            
             <div className="form-login">
+            {error && <p style={{ color: 'red' }}>{error}</p>}
                 <form  onSubmit={handleSubmit}>
                     <div className='casilla-login'>
                         <label>E-mail</label>
