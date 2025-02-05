@@ -58,7 +58,7 @@ const Login = () => {
             required />
                     </div>
                     <div>
-                        <input type="submit" />
+                        <input className='btn-entrar' type="submit" />
                     </div>
                 </form>
             </div>

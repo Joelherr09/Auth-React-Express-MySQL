@@ -7,6 +7,8 @@ const mysql = require('mysql2');
 const multer = require('multer');
 const path = require('path');
 
+const equiposRouter = require('./equipos');
+
 const app = express();
 const port = 5000;
 
@@ -42,7 +44,12 @@ const storage = multer.diskStorage({
   },
 });
 
+// Sirve los archivos estáticos de la carpeta 'uploads'
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const upload = multer({ storage });
+
+// Usar las rutas de equipos
+app.use('/api/equipos', equiposRouter);
 
 // Ruta de login
 app.post('/api/login', async (req, res) => {

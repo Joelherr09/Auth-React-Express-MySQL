@@ -21,3 +21,13 @@
     flex-direction: column;
     
 }
+.casilla-login input{
+    padding: 6px 2px;
+}
+.casilla-login label{
+    font-weight: 600;
+}
+.btn-entrar{
+    width: 100%;
+    padding: 6px 2px;
+}

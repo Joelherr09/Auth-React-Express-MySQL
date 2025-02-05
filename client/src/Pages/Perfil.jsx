@@ -48,7 +48,7 @@ const Perfil = () => {
 
           <div className='contenedor-foto-perfil'>
             <div className='cuadro-foto-perfil'>
-              {perfil.foto_perfil ? (<img src={perfil.foto_perfil} alt="Foto de perfil" className='foto-perfil' />) : (<img src={FotoPerfilDefault} alt="Foto de perfil" className='foto-perfil' />)}
+              {perfil.foto_perfil ? (<img src={`http://localhost:5000${perfil.foto_perfil}`} alt="Foto de perfil" className='foto-perfil' />) : (<img src={FotoPerfilDefault} alt="Foto de perfil" className='foto-perfil' />)}
             </div>
           </div>
           <div className='nombre-perfil'>

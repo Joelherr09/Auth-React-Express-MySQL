@@ -63,6 +63,7 @@ const EditarPerfil = () => {
         withCredentials: true,
       });
 
+      
       navigate(`/perfil/${id}`); // Redireccionar al perfil después de guardar los cambios
     } catch (err) {
       setError('Error actualizando el perfil');
