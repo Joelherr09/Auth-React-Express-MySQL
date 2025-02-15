@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext';
 import './css/EditarPerfil.css';
 import LogoBar from '../Componentes/LogoBar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Footer from '../Componentes/Footer';
 
 const EditarPerfil = () => {
   const { id } = useParams(); // Obtener el ID del perfil desde la URL
@@ -17,6 +18,10 @@ const EditarPerfil = () => {
   const [fotoActual, setFotoActual] = useState(''); // Estado para la foto actual
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  
+  const handleCambiarClave = () => {
+      navigate("/editar-perfil/cambiar-clave")
+  }
 
   // Verificar si el usuario tiene permisos para editar el perfil
   useEffect(() => {
@@ -137,11 +142,15 @@ const EditarPerfil = () => {
           <button type="submit">Guardar Cambios</button>
         </form>
 
-
+        <button onClick={handleCambiarClave} className="eliminar-cuenta-btn">
+          Cambiar Contraseña
+        </button>
         <button onClick={handleEliminarCuenta} className="eliminar-cuenta-btn">
           Eliminar Cuenta
         </button>
       </div>
+
+      <Footer/>
     </div>
   );
 };

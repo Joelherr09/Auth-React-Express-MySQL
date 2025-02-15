@@ -1,15 +1,79 @@
 .texto-header{
   display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 0 auto;
 }
-.texto-header h1{
-  display: flex;
-  gap: 8px;
+.btn-admin-home{
+  width: 100%;
+  margin: 10px auto;
+}
+.btn-admin-home ul{
+  width: 90%;
+  list-style: none;
   margin: 0 auto;
 }
-.texto-header p{
-  color: red;
-  margin: 0;
-  padding: 0;
+.btn-admin-home ul li{
+  width: 50%;
+  border: 0.5px solid black;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4px 12px;
+}
+.btn-admin-home ul li:hover{
+  background-color: rgb(142, 175, 202);
+}
+.seccion-uno-home{
+  width: 98%;
+  margin: 0 auto;
+}
+.header-seccion-uno-home h3{
+  text-align: center;
+  padding: 10px 0px;
+}
+.cuerpo-seccion-uno-home{
+  width: 100%;
+}
+.partidos-siguientes-home h4{
+  padding: 10px;
+}
+.partidos-siguientes-home ul{
+  list-style: none;
+  padding: 0px 10px;
+  display: flex;
+  overflow-x: scroll;
+  gap: 4px;
+}
+.partidos-siguientes-home ul li{
+  background-color: rgb(219, 219, 219);
+  border-left: 3px solid rgb(2, 39, 187);
+  padding: 10px;
+  min-width: 160px;
+}
+
+.partidos-siguientes-home-cuadro-equipo-head{
+  display: flex;
+  justify-content: space-between;
+}
+.partidos-siguientes-home-cuadro-equipo{
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0px;
+}
+
+.partidos-terminados-home h4{
+  padding: 10px;
+}
+.partidos-terminados-home ul{
+  list-style: none;
+  padding: 0px 10px;
+  display: flex;
+  overflow-x: scroll;
+  gap: 4px;
+}
+.partidos-terminados-home ul li{
+  background-color: rgb(219, 219, 219);
+  border-left: 3px solid rgb(187, 2, 2);
+  padding: 10px;
+  min-width: 160px;
 }

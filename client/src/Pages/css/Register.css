@@ -1,10 +1,22 @@
-.cuerpo-vista-register{
+.contenedor-cuerpo-vista-register{
     width: 100%;
+    padding-bottom: 160px;
+}
+.cuerpo-vista-register{
+    width: 90%;
+    margin: 50px auto 40px auto;
+    padding: 30px 0px;
+    border: 1px solid black;
 }
 .vista-register-header{
     width: 100%;
     text-align: center;
-    padding-top: 60px;
+    margin: 0;
+}
+.vista-register-header p{
+    width: 60%;
+    margin: 0 auto;
+    color: rgb(40, 40, 40);
 }
 .form-register{
     width: 60%;
@@ -20,4 +32,25 @@
     display: flex;
     flex-direction: column;
     
+}
+.casilla-register input{
+    padding: 6px 2px;
+}
+.casilla-register label{
+    font-weight: 600;
+}
+
+.footer-vista-register{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;
+}
+.btn-ingresa-vista-register:hover{
+    color: blue;
+    font-weight: 800;
 }

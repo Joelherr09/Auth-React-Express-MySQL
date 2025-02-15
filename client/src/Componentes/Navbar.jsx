@@ -47,22 +47,24 @@ const Navbar = () => {
 
   return (
     <div className='navbar-padre'>
-        {/* <div onClick={handleHomeClick}>
-            <h1>Inicio</h1>
-        </div> */}
         <div>
             <ul className='links-navbar'>
-                <li  onClick={handleHomeClick}><HomeIcon sx={{ fontSize: 40 }} /></li>
-                <li onClick={handlePartidosClick}><PartidosIcon sx={{fontSize:40}} /></li>
-                <li onClick={handleCampeonatosClick}><TorneoIcon sx={{fontSize:40}} /></li>
-                <li onClick={handleEquiposClick}><EquiposIcon sx={{fontSize:40}} /></li>
+                <li  onClick={handleHomeClick}><HomeIcon sx={{ fontSize: 40 }} className='btn-navbar'/></li>
+                <li onClick={handlePartidosClick}><PartidosIcon sx={{fontSize:40}} className='btn-navbar'/></li>
+                <li onClick={handleCampeonatosClick}><TorneoIcon sx={{fontSize:40}} className='btn-navbar'/></li>
+                <li onClick={handleEquiposClick}><EquiposIcon sx={{fontSize:40}} className='btn-navbar'/></li>
                 {isAuthenticated ? (
                     <>
-                    <li onClick={handlePerfilClick}><PerfilIcon sx={{fontSize:40}} /></li>
-                    <li className='auth-hover-nav' onClick={handleLogoutClick}><LogoutIcon sx={{fontSize:40}} /></li>
+                    <li onClick={handlePerfilClick}><PerfilIcon sx={{fontSize:40}} className='btn-navbar'/></li>
+                    <li className='btn-navbar' onClick={handleLogoutClick}><LogoutIcon sx={{fontSize:40}} /></li>
                     </>
                 ) : (
-                    <><li className='auth-hover-nav' onClick={handleLoginClick}>Iniciar Sesión</li><li className='auth-hover-nav' onClick={handleRegisterClick}>Registrarse</li></>
+                    <>
+                        <div className='links-auth'>
+                            <li className='auth-hover-nav' onClick={handleLoginClick}>Iniciar Sesión</li>
+                            <li className='auth-hover-nav' onClick={handleRegisterClick}>Registrarse</li>
+                        </div>
+                    </>
                     
                 )}
             </ul>

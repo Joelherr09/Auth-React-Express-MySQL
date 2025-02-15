@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext';
 import './css/Perfil.css';
 import FotoPerfilDefault from '../Media/user-logo.png'
 import LogoBar from '../Componentes/LogoBar';
+import Footer from '../Componentes/Footer';
 
 const Perfil = () => {
   const { id } = useParams(); // Obtener el ID del usuario desde la URL
@@ -76,6 +77,8 @@ const Perfil = () => {
         <hr />
         
       </div>
+
+      <Footer/>
     </div>
   );
 };

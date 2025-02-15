@@ -1,0 +1,110 @@
+.contenedor-vista-admin{
+    width: 100%;
+}
+.contenedor-cuerpo-admin{
+    width: 90%;
+    margin: 0 auto;
+}
+.header-vista-admin{
+    text-align: center;
+}
+.nav-admin{
+    border-top: 1px solid rgb(106, 106, 106);
+    border-bottom: 1px solid rgb(106, 106, 106);
+    border-left: 1px solid rgb(106, 106, 106);
+}
+.nav-admin ul{
+    list-style: none;
+    display: flex;
+}
+.nav-admin ul li{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-right: 0.5px solid rgb(106, 106, 106);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.nav-admin ul li:hover{
+    background-color: antiquewhite;
+}
+
+.usuarios-vista-admin{
+    width: 100%;
+    margin-top: 10px;
+}
+.usuarios-vista-admin-header{
+    width: 100%;
+}
+.usuarios-vista-admin-header h3{
+    text-align: center;
+}
+
+/* Acá el CSS del Componente <CuadroUsuarioPanelAdmin />  */
+
+.lista-usuarios{
+    height: 100%;padding-bottom: 100px;
+}
+
+
+
+/* Formulario para Modificar Datos */
+
+.contenedor-form-panel-admin{
+    width: 100%;
+    height: 100%;
+}
+.contenedor-form-panel-admin form{
+    padding: 20px 0px;
+}
+
+.col-form-panel-admin{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 auto;
+    font-weight: 600;
+}
+.fila-form-panel-admin-uno{
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 8px auto;
+}
+
+.fila-form-panel-admin-dos{
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 8px auto;
+}
+.btm-submit-form-panel-admin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+}
+.btn-panel-admin{
+    width: 180px;
+    height: 40px;
+    background-color: blue;
+    color: white;
+    margin: 0 auto;
+    border: none;
+    font-weight: 700;
+    font-size: 1.07rem;
+    margin: 0px 10px 0px 0px;
+}
+.btn-panel-admin:hover{
+    background-color: red;
+}
+.input-form-panel-admin{
+    padding: 4px 8px;
+}
+
+/* Formulario para Modificar Datos */

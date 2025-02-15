@@ -48,6 +48,9 @@ const storage = multer.diskStorage({
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const upload = multer({ storage });
 
+
+
+
 // Usar las rutas de equipos
 app.use('/api/equipos', equiposRouter);
 
@@ -69,7 +72,7 @@ app.post('/api/login', async (req, res) => {
     }
 
     // Generar un token JWT
-    const token = jwt.sign({ id: user[0].id }, 'secreto', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user[0].id, rol: user[0].rol }, 'secreto', { expiresIn: '1h' });
 
     // Enviar el token en una cookie
     res.cookie('token', token, {
@@ -215,6 +218,26 @@ app.post('/api/register', async (req, res) => {
       res.status(500).json({ error: 'Error en el servidor' });
     }
   });
+  //Middleware para verificar token JWT
+const verifyToken = (req, res, next) => {
+  const token = req.cookies.token; // Obtener el token de las cookies
+
+  if (!token) {
+    return res.status(401).json({ mensaje: 'No autorizado: Token no proporcionado' });
+  }
+
+  jwt.verify(token, 'secreto', (err, decoded) => {
+    if (err) {
+      console.error('Error al verificar el token:', err); // Log para depuración
+      return res.status(401).json({ mensaje: 'No autorizado: Token inválido' });
+    }
+
+    // Adjuntar el ID y el rol del usuario al objeto req
+    req.userId = decoded.id;
+    req.userRole = decoded.rol; // Asegúrate de que el token incluya el rol
+    next();
+  });
+};
 
 // Obtener Perfil
 
@@ -242,6 +265,123 @@ app.get('/api/perfil/:id', async (req, res) => {
     res.status(500).json({ error: 'Error en el servidor' });
   }
 });
+
+// Ruta para obtener la lista de usuarios
+app.get('/api/usuarios', async (req, res) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(401).json({ error: 'No autorizado' });
+  }
+
+  try {
+    // Verificar el token y obtener el ID del usuario logueado
+    const decoded = jwt.verify(token, 'secreto');
+
+    // Verificar si el usuario es administrador
+    const [user] = await db.promise().query('SELECT * FROM users WHERE id = ?', [decoded.id]);
+    if (user.length === 0 || user[0].rol !== 9) {
+      return res.status(403).json({ error: 'No tienes permisos para acceder a esta ruta' });
+    }
+
+    // Obtener todos los usuarios
+    const [usuarios] = await db.promise().query('SELECT id, usuario, email, rol, nombre_completo, ciudad, foto_perfil FROM users');
+    res.json(usuarios);
+  } catch (err) {
+    console.error('Error obteniendo los usuarios:', err);
+    res.status(500).json({ error: 'Error en el servidor' });
+  }
+});
+
+app.get('/api/usuarios/:id', async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    const [user] = await db.promise().query('SELECT * FROM users WHERE id = ?', [userId]);
+    if (user.length === 0) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    res.json(user[0]);
+  } catch (err) {
+    console.error('Error obteniendo el usuario:', err);
+    res.status(500).json({ error: 'Error en el servidor' });
+  }
+});
+app.put('/api/usuarios/:id', async (req, res) => {
+  const userId = req.params.id;
+  const { usuario, email, password, rol, nombre_completo, ciudad } = req.body;
+
+  try {
+    // Verificar si el usuario existe
+    const [user] = await db.promise().query('SELECT * FROM users WHERE id = ?', [userId]);
+    if (user.length === 0) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    // Actualizar los datos del usuario
+    await db.promise().query(
+      'UPDATE users SET usuario = ?, email = ?, password = ?, rol = ?, nombre_completo = ?, ciudad = ? WHERE id = ?',
+      [usuario, email, password, rol, nombre_completo, ciudad, userId]
+    );
+
+    res.json({ message: 'Usuario actualizado exitosamente' });
+  } catch (err) {
+    console.error('Error actualizando el usuario:', err);
+    res.status(500).json({ error: 'Error en el servidor' });
+  }
+});
+
+app.delete('/api/usuarios/:id', verifyToken, async (req, res) => {
+  const userId = req.params.id; // ID del usuario que se va a eliminar
+  const loggedInUserId = req.userId; // ID del usuario logueado
+  const loggedInUserRole = req.userRole; // Rol del usuario logueado
+
+  // Verificar si el usuario logueado es un administrador
+  if (loggedInUserRole !== 9 && loggedInUserId !== parseInt(userId)) {
+    return res.status(403).json({ error: 'No tienes permisos para eliminar esta cuenta' });
+  }
+
+  try {
+    // Eliminar la cuenta del usuario
+    await db.promise().query('DELETE FROM users WHERE id = ?', [userId]);
+
+    // Si el usuario eliminado es el mismo que está logueado, cerrar sesión
+    if (loggedInUserId === parseInt(userId)) {
+      res.clearCookie('token'); // Eliminar la cookie de autenticación
+    }
+
+    res.json({ message: 'Cuenta eliminada exitosamente' });
+  } catch (err) {
+    console.error('Error eliminando la cuenta:', err);
+    res.status(500).json({ error: 'Error en el servidor' });
+  }
+});
+
+
+// Ruta para cambiar la contraseña
+app.post('/api/cambiar-clave', verifyToken, async (req, res) => {
+  const { nuevaClave } = req.body;
+  const userId = req.userId;
+
+  if (!nuevaClave) {
+    return res.status(400).json({ mensaje: 'La nueva contraseña es requerida' });
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(nuevaClave, 10);
+
+    // Actualizar la contraseña en la base de datos
+    await db.promise().query('UPDATE users SET password = ? WHERE id = ?', [hashedPassword, userId]);
+
+    res.json({ mensaje: 'Contraseña cambiada exitosamente' });
+  } catch (error) {
+    console.error('Error al cambiar la contraseña:', error);
+    res.status(500).json({ mensaje: 'Error interno del servidor' });
+  }
+});
+
+
 
 // Iniciar el servidor
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../Componentes/Navbar'
 import LogoBar from '../Componentes/LogoBar'
+import Footer from '../Componentes/Footer'
 
 const Partidos = () => {
   return (
@@ -10,6 +11,8 @@ const Partidos = () => {
       <div>
         <h1>Partidos</h1>
       </div>
+
+      <Footer/>
     </div>
   )
 }

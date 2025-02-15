@@ -1,10 +1,13 @@
 .cuerpo-vista-login{
-    width: 100%;
+    width: 90%;
+    margin: 50px auto;
+    border: 1px solid black;
+    padding-bottom: 20px;
 }
 .vista-login-header{
     width: 100%;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 .form-login{
     width: 60%;
@@ -30,4 +33,27 @@
 .btn-entrar{
     width: 100%;
     padding: 6px 2px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+.footer-form-login{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 1.1rem;
+}
+.footer-vista-login{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;
+}
+.btn-registrate-vista-login:hover{
+    color: blue;
+    font-weight: 800;
 }

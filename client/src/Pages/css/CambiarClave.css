@@ -1,0 +1,66 @@
+.contenedor-vista-cambiar-clave{
+    width: 96%;
+    margin: 0 auto;
+}
+
+/* Header Cambiar Clave */
+.header-vista-cambiar-clave{
+    text-align: center;
+    padding: 30px 0px;
+}
+
+/* Cuerpo Cambiar Clave */
+.cuerpo-vista-cambiar-clave{
+    margin: 10px;
+    padding: 40px 0px;
+}
+
+.input-cambiar-clave{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+.input-cambiar-clave label{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding-bottom: 20px;
+}
+.input-cambiar-clave input{
+    width: 300px;
+    border: 1px gray solid;
+    border-radius: 0;
+    
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.contenedor-btn-submit-cambiar-clave{
+    display: flex;
+    margin: 0 auto;
+}
+.btn-submit-cambiar-clave{
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 10px 40px;
+}
+.btn-submit-cambiar-clave:hover{
+    background-color: red;
+}
+.footer-vista-cambiar-clave{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    padding: 30px 0px;
+}
+
+.btn-contacto:hover{
+    color: blue;
+    font-weight: 800;
+}

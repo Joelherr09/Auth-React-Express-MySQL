@@ -4,15 +4,21 @@ import axios from 'axios'
 import './css/Login.css'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
-import LogoBar from '../Componentes/LogoBar'
 
 const Login = () => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
+
+
+    const handleRegistrarCuenta = () => {
+      navigate("/register")
+    }
+    const handleRecuperarClave = () => {
+      navigate("/recuperar-clave")
+    }
   
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,11 +43,10 @@ const Login = () => {
 
   return (
     <div>
-        <LogoBar/>
         <Navbar/>
         <div className='cuerpo-vista-login'>
             <div className='vista-login-header'>
-                <h1>Inicia Sesión</h1>
+                <h1>cuartavoleibol</h1>
             </div>
             
             <div className="form-login">
@@ -58,10 +63,21 @@ const Login = () => {
             required />
                     </div>
                     <div>
-                        <input className='btn-entrar' type="submit" />
+                        <input className='btn-entrar' value="Iniciar Sesión" type="submit" />
                     </div>
                 </form>
+
             </div>
+
+            <div className='footer-form-login'>
+              <p>¿Olvidaste tu contraseña?</p>
+              <h6 className='btn-registrate-vista-login' onClick={handleRecuperarClave}>Recupera tu contraseña</h6>
+            </div>
+
+        </div>
+        <div className="footer-vista-login">
+          <p>¿No tienes cuenta?</p>
+          <h4 className='btn-registrate-vista-login' onClick={handleRegistrarCuenta} >Regístrate</h4>
         </div>
     </div>
   )

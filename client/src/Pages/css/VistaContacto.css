@@ -1,0 +1,43 @@
+.contenedor-contacto{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.header-contacto{
+    padding: 20px 0px 10px 0px;
+}
+.contacto-email{
+    margin: 20px auto 0px auto;
+    background-color: blue;
+    border-radius: 20px;
+    padding: 8px 14px;
+    width: 300px;
+    color: white;
+}
+
+.lista-links-contacto{
+    list-style: none;
+    display: flex;
+    width: 100%;
+    margin: 20px auto 0px auto;
+    justify-content: center;
+    gap: 10px;
+}
+.lista-links-contacto li{
+    background-color: blue;
+    border-radius: 20px;
+    padding: 8px 14px;
+    min-width: 80px;
+    color: white;
+}
+
+
+.hero-contacto{
+    width: 300px;
+    min-height: 300px;
+    background-color: blue;
+    margin: 0 auto;
+    margin-top: 20px;
+}
