@@ -57,3 +57,13 @@
     color: blue;
     font-weight: 800;
 }
+
+
+@media only screen and (min-width: 600px){
+    .cuerpo-vista-login{
+        width: 50%;
+    }
+    .footer-vista-login{
+        width: 50%;
+    }
+}

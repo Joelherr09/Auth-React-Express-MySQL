@@ -54,3 +54,12 @@
     color: blue;
     font-weight: 800;
 }
+
+@media only screen and (min-width: 600px){
+    .cuerpo-vista-register{
+        width: 50%;
+    }
+    .footer-vista-register{
+        width: 50%;
+    }
+}

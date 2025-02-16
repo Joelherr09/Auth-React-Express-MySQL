@@ -31,10 +31,10 @@ const VistaContacto = () => {
             </div>
             
 
-
+          <Footer/>
         </div>
 
-        <Footer/>
+        
     </div>
   )
 }

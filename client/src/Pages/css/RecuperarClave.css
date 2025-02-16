@@ -13,3 +13,10 @@
     padding: 0px 0px;
     text-align: center;
 }
+
+@media only screen and (min-width: 600px){
+    .contenedor-vista-recuperar-clave{
+        width: 60%;
+        margin: 0 auto;
+    }
+  }

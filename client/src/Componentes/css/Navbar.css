@@ -8,18 +8,11 @@
     bottom: 0;
     width: 100%;
     gap: 10px;
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(209, 209, 209);
     min-height: 70px;
 }
 .navbar-padre div ul li{
     list-style: none;
-}
-.links-auth{
-    font-size: 1.4rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
 }
 .links-auth li{
     border-radius: 10px;
@@ -35,16 +28,89 @@
     color: white;
     border: 0.5px solid rgb(2, 39, 187);
 }
-.btn-navbar:hover{
-    color: rgb(2, 39, 187);
-    border-bottom: 0.5px solid rgb(2, 39, 187);
-}
 .links-navbar{
     display: flex;
     font-size: 1.4rem;
     gap: 10px;
     height: 100%;
+    justify-content: space-between;
 }
 .links-navbar li{
     margin: auto 0;
+}
+.contenedor-links-navbar{
+    width: 80%;
+    margin: 0 auto;
+}
+.text-btn-navbar{
+    display: none;
+}
+.btn-navbar:hover{
+    color: blue;
+}
+.LogoWeb{
+    display: none;
+    padding-left: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .navbar-padre {
+        background-color: white;
+        padding: 20px 12px; /* Ajusta el padding para que sea vertical */
+        display: flex;
+        flex-direction: column; /* Cambia la dirección a columna para que los elementos estén uno debajo del otro */
+        justify-content: flex-start; /* Alinea los elementos al inicio (arriba) */
+        overflow: hidden;
+        position: fixed; /* Mantiene el navbar fijo */
+        left: 0; /* Lo coloca en el lado izquierdo */
+        top: 0; /* Lo fija en la parte superior */
+        min-width:200px;
+        width: auto; /* Ancho automático para que se ajuste al contenido */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        gap: 10px;
+        border-top: none; /* Elimina el borde superior */
+        border-right: 1px solid rgb(209, 209, 209); /* Agrega un borde derecho */
+        min-height: auto; /* Elimina la altura mínima */
+        
+    }
+    .text-btn-navbar{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        margin: auto 0;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+    .links-navbar{
+        display: flex;
+        font-size: 1.4rem;
+        flex-direction: column;
+        
+        gap: 10px;
+        height: 100%;
+        justify-content: space-between;
+    }
+    .links-navbar li{
+        display: flex;
+        text-align: center;
+        gap: 10px;
+        padding: 4px 8px;
+    }
+    .links-navbar li:hover{
+        color: blue;
+        border-radius: 6px;
+        background-color: rgb(230, 228, 228);
+    }
+    .contenedor-links-navbar{
+        width: 100%;
+    }
+    .btn-navbar{
+        display: flex;
+        flex-direction: row;
+    }
+    .LogoWeb{
+        display: block;
+        margin-bottom: 30px;
+    }
 }

@@ -8,11 +8,14 @@ const Partidos = () => {
     <div>
       <LogoBar/>
       <Navbar/>
-      <div>
+      <div className='body-app'>
         <h1>Partidos</h1>
+
+
+        <Footer/>
       </div>
 
-      <Footer/>
+      
     </div>
   )
 }

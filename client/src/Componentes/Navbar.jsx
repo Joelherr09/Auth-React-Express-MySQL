@@ -7,10 +7,9 @@ import PartidosIcon from '@mui/icons-material/SportsVolleyball';
 import TorneoIcon from '@mui/icons-material/EmojiEvents';
 import EquiposIcon from '@mui/icons-material/Groups';
 import PerfilIcon from '@mui/icons-material/AccountCircle';
-import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = () => {
-    const { isAuthenticated, user, logout } = useContext(AuthContext);
+    const { isAuthenticated, user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleHomeClick = () => {
@@ -18,9 +17,6 @@ const Navbar = () => {
     }
     const handleLoginClick = () =>{
         navigate('/login');
-    }
-    const handleRegisterClick = () => {
-        navigate('/register');
     }
     const handlePartidosClick = () => {
         navigate('/partidos');
@@ -38,31 +34,26 @@ const Navbar = () => {
           navigate('/login'); // Redirigir al login si no está autenticado
         }
       };
-      const handleLogoutClick = () => {
-        logout(); // Cerrar sesión
-        navigate('/'); // Redirigir a la página principal
-      };
 
       
 
   return (
     <div className='navbar-padre'>
-        <div>
+        <div className='contenedor-links-navbar'>
+            <h2 className='LogoWeb'  onClick={handleHomeClick}>cuartavoleibol</h2>
             <ul className='links-navbar'>
-                <li  onClick={handleHomeClick}><HomeIcon sx={{ fontSize: 40 }} className='btn-navbar'/></li>
-                <li onClick={handlePartidosClick}><PartidosIcon sx={{fontSize:40}} className='btn-navbar'/></li>
-                <li onClick={handleCampeonatosClick}><TorneoIcon sx={{fontSize:40}} className='btn-navbar'/></li>
-                <li onClick={handleEquiposClick}><EquiposIcon sx={{fontSize:40}} className='btn-navbar'/></li>
+                <li  onClick={handleHomeClick}><HomeIcon sx={{ fontSize: 40, justifySelf: 'center' }} className='btn-navbar'/><p className='text-btn-navbar'>Inicio</p></li>
+                <li onClick={handlePartidosClick}><PartidosIcon sx={{fontSize:40}} className='btn-navbar'/><p className='text-btn-navbar'>Partidos</p></li>
+                <li onClick={handleCampeonatosClick}><TorneoIcon sx={{fontSize:40}} className='btn-navbar'/><p className='text-btn-navbar'>Torneos</p></li>
+                <li onClick={handleEquiposClick}><EquiposIcon sx={{fontSize:40}} className='btn-navbar'/><p className='text-btn-navbar'>Equipos</p></li>
                 {isAuthenticated ? (
                     <>
-                    <li onClick={handlePerfilClick}><PerfilIcon sx={{fontSize:40}} className='btn-navbar'/></li>
-                    <li className='btn-navbar' onClick={handleLogoutClick}><LogoutIcon sx={{fontSize:40}} /></li>
+                    <li onClick={handlePerfilClick}><PerfilIcon sx={{fontSize:40}} className='btn-navbar'/><p className='text-btn-navbar'>Perfil</p></li>
                     </>
                 ) : (
                     <>
-                        <div className='links-auth'>
-                            <li className='auth-hover-nav' onClick={handleLoginClick}>Iniciar Sesión</li>
-                            <li className='auth-hover-nav' onClick={handleRegisterClick}>Registrarse</li>
+                        <div className='links-navbar'>
+                        <li onClick={handleLoginClick}><PerfilIcon sx={{fontSize:40}} className='btn-navbar'/><p className='text-btn-navbar'>Iniciar Sesión</p></li>
                         </div>
                     </>
                     

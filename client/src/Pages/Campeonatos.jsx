@@ -5,7 +5,7 @@ import Footer from '../Componentes/Footer'
 
 const Campeonatos = () => {
   return (
-    <div>
+    <div  className='body-app'>
       <LogoBar/>
       <Navbar/>
       <div>

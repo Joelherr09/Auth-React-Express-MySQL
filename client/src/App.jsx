@@ -16,7 +16,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="body-app">
       <LogoBar />
       <Navbar />
       <div className="texto-header">

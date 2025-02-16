@@ -22,10 +22,10 @@ const RecuperarClave = () => {
                 <h3>cuartavoleibolsoporte@gmail.com</h3>
             </div>
 
-
+          <Footer/>
         </div>
 
-        <Footer/>
+        
     </div>
   )
 }

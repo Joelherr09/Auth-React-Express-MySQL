@@ -1,11 +1,12 @@
 .perfil-header{
     display: flex;
     gap:30px;
-    padding-bottom: 20px;
+    align-items: center;
+    padding: 10px;
 }
 .perfil-container{
-    width: 80%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 0 auto 0 300px;
     padding: 20px;
     min-height: 80vh;
 }
@@ -24,7 +25,7 @@
     object-fit: contain;
     width: 200px;
     height: 200px;
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(239, 239, 239);
     border-radius: 50%;
 }
 .nombre-perfil{
@@ -36,29 +37,54 @@
 .bio-perfil{
     padding-top: 10px;
 }
+.header-info-perfil{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-header-perfil-info{
+    border-radius: 4px;
+    background-color: rgb(205, 204, 204);
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 6px 16px;
 
+    -webkit-box-shadow: 4px 4px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 19px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 19px 0px rgba(0,0,0,0.75);
+
+}
+.btn-header-perfil-info:hover{
+    background-color: gray;
+    -webkit-box-shadow: 4px 4px 19px 0px rgba(0,49,122,1);
+    -moz-box-shadow: 4px 4px 19px 0px rgba(0,49,122,1);
+    box-shadow: 4px 4px 19px 0px rgba(0,49,122,1);
+}
 @media only screen and (max-width: 600px) {
 
     .perfil-header{
         display: flex;
-        gap:30px;
-        padding-bottom: 20px;
+        gap:4px;
+        padding: 0;
+        width: 100%;
+        margin: 0 auto;
     }
     .perfil-container{
-        width: 80%;
+        width: 96%;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0px;
         min-height: 80vh;
     }
     .contenedor-foto-perfil{
-        min-height: 80px;
-        height: 80px;
+        height: 100%;
         
     }
     .cuadro-foto-perfil{
         width: 100px;
         background-color: gray;
         height: 100px;
+        margin: 0 10px;
     }
     .foto-perfil{
         object-fit: contain;
@@ -68,13 +94,21 @@
         border-radius: 50%;
     }
     .nombre-perfil{
-        padding: 8px 0;
-        width: 100%;
+        padding: 20px 10px;
+        width: 90%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         font-size: 0.9rem;
     }
     .bio-perfil{
         padding-top: 10px;
+    }
+    .btn-header-perfil-info{
+        border-radius: 4px;
+        background-color: rgb(214, 214, 214);
+        font-size: 0.6rem;
+        font-weight: 300;
+        padding: 2px 6px;
     }
   }
